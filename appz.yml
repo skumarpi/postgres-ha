@@ -1,6 +1,6 @@
 app:
-    name: Postgres HA Node1
-    code: POSTGRESHANODE1
+    name: Postgres HA Replica
+    code: POSTGRESHAREPLICA
     notify: skumar@ecloudcontrol.com
     
 build:
@@ -13,22 +13,22 @@ build:
 deploy:
     context: skumarpi/DEV
     type: statefulset
-    replicas: 1
+    replicas: 2
     port:
     - 5432
     
 volumes:
-  - claim: postgres-node1-data
+  - claim: postgres-replica-data
     mount: /appz/data
     name: data
     size: 5Gi
     mode: ReadWriteOnce   
-  - claim: postgres-node1-home
+  - claim: postgres-replica-home
     mount: /appz/home
     name: home
     size: 5Gi
     mode: ReadWriteOnce   
-  - claim: postgres-node1-backup
+  - claim: postgres-replica-backup
     mount: /appz/backup
     name: backup
     size: 5Gi
@@ -38,8 +38,8 @@ properties:
     POSTGRESQL_CONNECTUSER: postgres
     POSTGRESQL_CONNECTIONDB: postgres
     POSTGRESQL_PORT: 5432
-    ENABLE_MONITOR: False
-    POSTGRES_MONITOR_URL: postgres://autoctl_node@postgres13-ha-monitor-13-x:5432/pg_auto_failover?sslmode=require
+    #ENABLE_MONITOR: False
+    #POSTGRES_MONITOR_URL: postgres://autoctl_node@postgres13-ha-monitor-13-x:5432/pg_auto_failover?sslmode=require
     POSTGRESQL_PASSWORD: 
       vault: POSTGRESQL_PASSWORD
     POSTGRESQL_SPRINGBOOTWEB_PASSWORD:
