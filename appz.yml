@@ -43,11 +43,3 @@ properties:
     POSTGRESQL_SPRINGBOOTWEB_PASSWORD:
           vault: POSTGRESQL_SPRINGBOOTWEB_PASSWORD
     revision : 86
-
-    #WebDav Setup
-    PUSH_BACKUP_WEBDAV: False
-    DAV_FOLDER: DBBACKUP
-    DAV_USER: appz
-    DAV_USERPASSWORD:
-      vault: DAV_USERPASSWORD
-    WEBDAV_BACKUP_URL: http://webdav-2-0/
