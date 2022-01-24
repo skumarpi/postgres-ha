@@ -15,7 +15,7 @@ databases:
 restore:
   - database: springbootweb
     source:
-      url: 'https://www.ecloudcontrol.com/wp-content/uploads/2021/06/accountsdb-springboot.sql_.zip'
+      url: 'https://www.ecloudcontrol.com/wp-content/uploads/2022/01/accountsdb-springboot.sql_.zip'
     user: springbootweb
     password: $POSTGRESQL_SPRINGBOOTWEB_PASSWORD
-    token: 20220124-0330
+    token: 20220124-1610
