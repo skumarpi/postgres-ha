@@ -1,6 +1,6 @@
 app:
-    name: Postgres HA Replica
-    code: POSTGRESHAREPLICA
+    name: Postgres HA 
+    code: POSTGRESHA
     notify: skumar@ecloudcontrol.com
     
 build:
@@ -18,17 +18,17 @@ deploy:
     - 5432
     
 volumes:
-  - claim: postgres-replica-data
+  - claim: postgres-ha-data
     mount: /appz/data
     name: data
     size: 5Gi
     mode: ReadWriteOnce   
-  - claim: postgres-replica-home
+  - claim: postgres-ha-home
     mount: /appz/home
     name: home
     size: 5Gi
     mode: ReadWriteOnce   
-  - claim: postgres-replica-backup
+  - claim: postgres-ha-backup
     mount: /appz/backup
     name: backup
     size: 5Gi
